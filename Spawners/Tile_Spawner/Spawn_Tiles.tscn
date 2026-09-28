@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Spawners/Tile_Spawner/Spawn_Tiles.gd" type="Script" id=1]
+[ext_resource path="res://Tiles/Tile1/Tile1.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Colletable_obj/Color_circle/ColorCircle.tscn" type="PackedScene" id=3]
+
+[node name="Spawn_Tiles" type="Node2D"]
+script = ExtResource( 1 )
+tile1 = ExtResource( 2 )
+color_circle = ExtResource( 3 )

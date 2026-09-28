@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Doting Writing.mp3-5f01416bcfb65849d12caa8a319a9ca2.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Musics/Doting Writing.mp3"
+dest_files=[ "res://.import/Doting Writing.mp3-5f01416bcfb65849d12caa8a319a9ca2.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

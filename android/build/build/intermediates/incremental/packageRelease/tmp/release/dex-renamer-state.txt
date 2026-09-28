@@ -1,0 +1,4 @@
+#Thu Oct 03 01:53:57 TRT 2024
+base.0=D\:\\Lazimli_dacumentler\\Godot_projects\\Zip-Zip\\android\\build\\build\\intermediates\\dex\\release\\mergeDexRelease\\classes.dex
+renamed.0=classes.dex
+path.0=classes.dex

@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/quake-and-break-99034.wav-acc69e6f123c018a81843f0df3d58f07.sample"
+
+[deps]
+
+source_file="res://Sounds/Fish_Boss_Sounds/quake-and-break-99034.wav"
+dest_files=[ "res://.import/quake-and-break-99034.wav-acc69e6f123c018a81843f0df3d58f07.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

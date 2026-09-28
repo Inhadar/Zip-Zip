@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Spawners/Enemy_spawners/Enemy_Spawner.gd" type="Script" id=1]
+[ext_resource path="res://Spawners/Enemy_spawners/Enemy_types/Line_enemy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Spawners/Enemy_spawners/Enemy_types/Wave_enemy.tscn" type="PackedScene" id=3]
+
+[node name="Enemy_Spawner" type="Node2D"]
+script = ExtResource( 1 )
+enemy1 = ExtResource( 2 )
+enemy2 = ExtResource( 3 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+margin_right = 135.0
+margin_bottom = 1905.0

@@ -1,0 +1,1226 @@
+[gd_scene load_steps=55 format=2]
+
+[ext_resource path="res://zip_zip/New_Style/Buttons/back_rel.png" type="Texture" id=1]
+[ext_resource path="res://zip_zip/UI/Shop_items/heart.png" type="Texture" id=2]
+[ext_resource path="res://zip_zip/New_Style/Shop_page/up_shop_page_board.png" type="Texture" id=3]
+[ext_resource path="res://zip_zip/New_Style/Shop_page/up_shop_bar_decor_1.png" type="Texture" id=4]
+[ext_resource path="res://Shop/Shop.gd" type="Script" id=5]
+[ext_resource path="res://zip_zip/New_Style/Shop_page/skin_shop_button_rel.png" type="Texture" id=6]
+[ext_resource path="res://zip_zip/New_Style/Shop_page/skin_shop_button_pres.png" type="Texture" id=7]
+[ext_resource path="res://zip_zip/New_Style/Buttons/play_pres.png" type="Texture" id=8]
+[ext_resource path="res://zip_zip/New_Style/Shop_page/shop_button_rel.png" type="Texture" id=9]
+[ext_resource path="res://zip_zip/New_Style/Buttons/play_rel.png" type="Texture" id=10]
+[ext_resource path="res://zip_zip/New_Style/Buttons/back_pres.png" type="Texture" id=11]
+[ext_resource path="res://zip_zip/New_Style/SS_main_page/US_main_bckgrnd.png" type="Texture" id=12]
+[ext_resource path="res://zip_zip/New_Style/SS_main_page/US_main_decor.png" type="Texture" id=13]
+[ext_resource path="res://zip_zip/New_Style/Shop_page/shop_button_pres.png" type="Texture" id=14]
+[ext_resource path="res://zip_zip/Players/Player_sprites/normal_triangle.png" type="Texture" id=15]
+[ext_resource path="res://zip_zip/Players/Player_sprites/normal_circle.png" type="Texture" id=16]
+[ext_resource path="res://zip_zip/UI/Shop_items/running.png" type="Texture" id=17]
+[ext_resource path="res://zip_zip/UI/Shop_items/text_board.png" type="Texture" id=18]
+[ext_resource path="res://zip_zip/New_Style/Shop_page/up_shop_bar.png" type="Texture" id=20]
+[ext_resource path="res://zip_zip/New_Style/Shop_page/up_shop_bar_decor_2.png" type="Texture" id=21]
+[ext_resource path="res://zip_zip/Players/Player_sprites/normal_rectangle.png" type="Texture" id=22]
+[ext_resource path="res://zip_zip/New_Style/border_decor.png" type="Texture" id=23]
+[ext_resource path="res://Fonts/main_font.ttf" type="DynamicFontData" id=24]
+[ext_resource path="res://zip_zip/Players/Player_sprites/emoji_triangle.png" type="Texture" id=25]
+[ext_resource path="res://zip_zip/Players/Player_sprites/gentleman_rectangle.png" type="Texture" id=26]
+[ext_resource path="res://zip_zip/Players/Player_sprites/thorny_circle.png" type="Texture" id=27]
+[ext_resource path="res://zip_zip/New_Style/Shop_page/up_shop_bar_decor_3.png" type="Texture" id=28]
+[ext_resource path="res://zip_zip/UI/Shop_items/currency.png" type="Texture" id=29]
+[ext_resource path="res://zip_zip/UI/Shop_items/frisbee.png" type="Texture" id=30]
+[ext_resource path="res://zip_zip/New_Style/Shop_page/up_shop_bar_decor_4.png" type="Texture" id=31]
+[ext_resource path="res://zip_zip/New_Style/decor_border.png" type="Texture" id=33]
+[ext_resource path="res://zip_zip/New_Style/Shop_page/shop_page_decor.png" type="Texture" id=34]
+[ext_resource path="res://zip_zip/New_Style/Shop_page/shop_page_bckgrnd.png" type="Texture" id=35]
+[ext_resource path="res://zip_zip/New_Style/Shop_page/skin_shop_page_board.png" type="Texture" id=36]
+[ext_resource path="res://zip_zip/Players/Player_sprites/devil_circle.png" type="Texture" id=37]
+[ext_resource path="res://zip_zip/Players/Player_sprites/emoji_rectangle.png" type="Texture" id=38]
+[ext_resource path="res://zip_zip/Players/Player_sprites/gentleman_triangle.png" type="Texture" id=39]
+[ext_resource path="res://zip_zip/Players/Player_sprites/thorny_rectangle.png" type="Texture" id=40]
+[ext_resource path="res://zip_zip/Players/Player_sprites/empty_rectangle.png" type="Texture" id=41]
+[ext_resource path="res://zip_zip/Players/Player_sprites/devil_triangle.png" type="Texture" id=42]
+[ext_resource path="res://zip_zip/Players/Player_sprites/emoji_circle.png" type="Texture" id=43]
+[ext_resource path="res://zip_zip/Players/Player_sprites/cracked_triangle.png" type="Texture" id=44]
+[ext_resource path="res://zip_zip/Players/Player_sprites/gentleman_circle.png" type="Texture" id=45]
+[ext_resource path="res://zip_zip/Players/Player_sprites/empty_triangle.png" type="Texture" id=46]
+[ext_resource path="res://zip_zip/Players/Player_sprites/thorny_triangle.png" type="Texture" id=47]
+[ext_resource path="res://zip_zip/Players/Player_sprites/cracked_circle.png" type="Texture" id=48]
+[ext_resource path="res://zip_zip/Players/Player_sprites/cracked_rectangle.png" type="Texture" id=49]
+[ext_resource path="res://zip_zip/Players/Player_sprites/devil_rectangle.png" type="Texture" id=50]
+[ext_resource path="res://zip_zip/Players/Player_sprites/empty_circle.png" type="Texture" id=51]
+[ext_resource path="res://zip_zip/New_Style/Shop_page/film.png" type="Texture" id=52]
+[ext_resource path="res://zip_zip/New_Style/board.png" type="Texture" id=53]
+
+[sub_resource type="DynamicFont" id=5]
+size = 256
+font_data = ExtResource( 24 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 128
+font_data = ExtResource( 24 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 256
+font_data = ExtResource( 24 )
+
+[node name="Shop" type="Node"]
+pause_mode = 2
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 667.0, 463.0 ],
+"_edit_vertical_guides_": [ 540.0, 1001.0, 83.0, 423.0, 655.0 ]
+}
+
+[node name="main_shop_design" type="Node2D" parent="."]
+
+[node name="background" type="TextureRect" parent="main_shop_design"]
+margin_right = 1080.0
+margin_bottom = 2160.0
+texture = ExtResource( 12 )
+
+[node name="button_decor" type="Sprite" parent="main_shop_design"]
+position = Vector2( 540, 1080 )
+texture = ExtResource( 13 )
+
+[node name="main_shop_buttons" type="Node2D" parent="."]
+
+[node name="Upgrades" type="TextureButton" parent="main_shop_buttons"]
+margin_left = 359.83
+margin_top = 662.0
+margin_right = 707.83
+margin_bottom = 1004.0
+texture_normal = ExtResource( 10 )
+texture_pressed = ExtResource( 8 )
+
+[node name="Skins" type="TextureButton" parent="main_shop_buttons"]
+margin_left = 536.83
+margin_top = 1057.0
+margin_right = 884.83
+margin_bottom = 1399.0
+rect_rotation = 44.9999
+texture_normal = ExtResource( 10 )
+texture_pressed = ExtResource( 8 )
+
+[node name="in_shop_design" type="Node2D" parent="."]
+visible = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Shop_page_bckgrnd" type="TextureRect" parent="in_shop_design"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 1080.0
+margin_bottom = 2160.0
+texture = ExtResource( 35 )
+
+[node name="shop_decor" type="Sprite" parent="in_shop_design"]
+modulate = Color( 1, 1, 1, 0.843137 )
+position = Vector2( 540, 1080 )
+z_index = 2
+texture = ExtResource( 34 )
+
+[node name="border" type="Sprite" parent="in_shop_design"]
+position = Vector2( 540, 1080 )
+z_index = 3
+texture = ExtResource( 33 )
+
+[node name="scoreboard" type="Sprite" parent="in_shop_design"]
+position = Vector2( 540, 256 )
+z_index = 3
+texture = ExtResource( 53 )
+
+[node name="ScoreLabel" type="Label" parent="in_shop_design/scoreboard"]
+modulate = Color( 0.027451, 0.231373, 0.298039, 1 )
+margin_left = -336.0
+margin_top = -57.0
+margin_right = 1341.0
+margin_bottom = 231.0
+rect_scale = Vector2( 0.4, 0.4 )
+custom_fonts/font = SubResource( 5 )
+text = "0000"
+align = 1
+valign = 1
+
+[node name="out_border" type="Sprite" parent="."]
+position = Vector2( 540, 1080 )
+texture = ExtResource( 23 )
+
+[node name="Upgrades_shop" type="ScrollContainer" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 208.0
+margin_top = 10.0
+margin_right = 217.0
+margin_bottom = -9.0
+scroll_horizontal_enabled = false
+
+[node name="CenterContainer" type="CenterContainer" parent="Upgrades_shop"]
+margin_right = 700.0
+margin_bottom = 4300.0
+rect_min_size = Vector2( 0, 4300 )
+mouse_filter = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Upgrades_shop/CenterContainer"]
+margin_top = 412.0
+margin_right = 700.0
+margin_bottom = 3888.0
+mouse_filter = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Upgrades_shop/CenterContainer/MarginContainer"]
+margin_right = 700.0
+margin_bottom = 3476.0
+custom_constants/separation = 128
+
+[node name="Health" type="TextureRect" parent="Upgrades_shop/CenterContainer/MarginContainer/VBoxContainer"]
+margin_right = 700.0
+margin_bottom = 773.0
+texture = ExtResource( 3 )
+
+[node name="icon" type="Sprite" parent="Upgrades_shop/CenterContainer/MarginContainer/VBoxContainer/Health"]
+position = Vector2( 86, 163 )
+scale = Vector2( 0.138672, 0.138672 )
+texture = ExtResource( 2 )
+
+[node name="text_bar" type="TextureRect" parent="Upgrades_shop/CenterContainer/MarginContainer/VBoxContainer/Health"]
+visible = false
+margin_left = 130.0
+margin_top = 773.0
+margin_right = 641.0
+margin_bottom = 903.0
+rect_scale = Vector2( 0.9, 0.9 )
+texture = ExtResource( 18 )
+
+[node name="explanation" type="Label" parent="Upgrades_shop/CenterContainer/MarginContainer/VBoxContainer/Health/text_bar"]
+margin_left = 2.0
+margin_top = 19.0
+margin_right = 2008.0
+margin_bottom = 417.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 1 )
+text = "Increase your life, follow your destiny..."
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
+
+[node name="up_decor" type="Sprite" parent="Upgrades_shop/CenterContainer/MarginContainer/VBoxContainer/Health"]
+position = Vector2( 349, 492 )
+texture = ExtResource( 21 )
+
+[node name="Buy" type="TextureButton" parent="Upgrades_shop/CenterContainer/MarginContainer/VBoxContainer/Health"]
+margin_left = 276.0
+margin_top = 521.0
+margin_right = 423.0
+margin_bottom = 668.0
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 14 )
+texture_disabled = ExtResource( 14 )
+
+[node name="Price" type="Label" parent="Upgrades_shop/CenterContainer/MarginContainer/VBoxContainer/Health/Buy"]
+margin_left = -94.0
+margin_top = -498.0
+margin_right = 1596.0
+margin_bottom = -210.0
+rect_scale = Vector2( 0.2, 0.2 )
+custom_fonts/font = SubResource( 2 )
+text = "100"
+align = 1
+valign = 1
+
+[node name="Bar" type="Node2D" parent="Upgrades_shop/CenterContainer/MarginContainer/VBoxContainer/Health"]
+position = Vector2( 12, -4 )
+
+[node name="1" type="Sprite" parent="Upgrades_shop/CenterContainer/MarginContainer/VBoxContainer/Health/Bar"]
+position = Vector2( 338, 399 )
+texture = ExtResource( 20 )
+hframes = 2
+
+[node name="2" type="Sprite" parent="Upgrades_shop/CenterContainer/MarginContainer/VBoxContainer/Health/Bar"]
+position = Vector2( 81, 407 )
+texture = ExtResource( 20 )
+hframes = 2
+
+[node name="3" type="Sprite" parent="Upgrades_shop/CenterContainer/MarginContainer/VBoxContainer/Health/Bar"]
+position = Vector2( 591, 410 )
+texture = ExtResource( 20 )
+hframes = 2
+
+[node name="4" type="Sprite" parent="Upgrades_shop/CenterContainer/MarginContainer/VBoxContainer/Health/Bar"]
+position = Vector2( 215, 276 )
+texture = ExtResource( 20 )
+hframes = 2
+
+[node name="5" type="Sprite" parent="Upgrades_shop/CenterContainer/MarginContainer/VBoxContainer/Health/Bar"]
+position = Vector2( 462, 273 )
+texture = ExtResource( 20 )
+hframes = 2
+
+[node name="Speed" type="TextureRect" parent="Upgrades_shop/CenterContainer/MarginContainer/VBoxContainer"]
+margin_top = 901.0
+margin_right = 700.0
+margin_bottom = 1674.0
+texture = ExtResource( 3 )
+
+[node name="icon" type="Sprite" parent="Upgrades_shop/CenterContainer/MarginContainer/VBoxContainer/Speed"]
+position = Vector2( 86, 163 )
+scale = Vector2( 0.138672, 0.138672 )
+texture = ExtResource( 17 )
+
+[node name="text_bar" type="TextureRect" parent="Upgrades_shop/CenterContainer/MarginContainer/VBoxContainer/Speed"]
+visible = false
+margin_left = 130.0
+margin_top = 773.0
+margin_right = 641.0
+margin_bottom = 903.0
+rect_scale = Vector2( 0.9, 0.9 )
+texture = ExtResource( 18 )
+
+[node name="explanation" type="Label" parent="Upgrades_shop/CenterContainer/MarginContainer/VBoxContainer/Speed/text_bar"]
+margin_left = 2.0
+margin_top = 19.0
+margin_right = 2008.0
+margin_bottom = 417.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 1 )
+text = "Increase your life, follow your destiny..."
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
+
+[node name="up_decor" type="Sprite" parent="Upgrades_shop/CenterContainer/MarginContainer/VBoxContainer/Speed"]
+position = Vector2( 339, 501 )
+texture = ExtResource( 31 )
+
+[node name="Buy" type="TextureButton" parent="Upgrades_shop/CenterContainer/MarginContainer/VBoxContainer/Speed"]
+margin_left = 264.0
+margin_top = 541.0
+margin_right = 411.0
+margin_bottom = 688.0
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 14 )
+texture_disabled = ExtResource( 14 )
+
+[node name="Price" type="Label" parent="Upgrades_shop/CenterContainer/MarginContainer/VBoxContainer/Speed/Buy"]
+margin_left = -81.0
+margin_top = -518.0
+margin_right = 1599.0
+margin_bottom = -230.0
+rect_scale = Vector2( 0.2, 0.2 )
+custom_fonts/font = SubResource( 2 )
+text = "100"
+align = 1
+valign = 1
+
+[node name="Bar" type="Node2D" parent="Upgrades_shop/CenterContainer/MarginContainer/VBoxContainer/Speed"]
+position = Vector2( 0, 15.9998 )
+
+[node name="1" type="Sprite" parent="Upgrades_shop/CenterContainer/MarginContainer/VBoxContainer/Speed/Bar"]
+position = Vector2( 117, 429 )
+texture = ExtResource( 20 )
+hframes = 2
+
+[node name="2" type="Sprite" parent="Upgrades_shop/CenterContainer/MarginContainer/VBoxContainer/Speed/Bar"]
+position = Vector2( 556, 429 )
+texture = ExtResource( 20 )
+hframes = 2
+
+[node name="3" type="Sprite" parent="Upgrades_shop/CenterContainer/MarginContainer/VBoxContainer/Speed/Bar"]
+position = Vector2( 231, 325 )
+texture = ExtResource( 20 )
+hframes = 2
+
+[node name="4" type="Sprite" parent="Upgrades_shop/CenterContainer/MarginContainer/VBoxContainer/Speed/Bar"]
+position = Vector2( 435, 321 )
+texture = ExtResource( 20 )
+hframes = 2
+
+[node name="5" type="Sprite" parent="Upgrades_shop/CenterContainer/MarginContainer/VBoxContainer/Speed/Bar"]
+position = Vector2( 335, 252 )
+texture = ExtResource( 20 )
+hframes = 2
+
+[node name="Score" type="TextureRect" parent="Upgrades_shop/CenterContainer/MarginContainer/VBoxContainer"]
+margin_top = 1802.0
+margin_right = 700.0
+margin_bottom = 2575.0
+texture = ExtResource( 3 )
+
+[node name="icon" type="Sprite" parent="Upgrades_shop/CenterContainer/MarginContainer/VBoxContainer/Score"]
+position = Vector2( 86, 163 )
+scale = Vector2( 0.138672, 0.138672 )
+texture = ExtResource( 29 )
+
+[node name="text_bar" type="TextureRect" parent="Upgrades_shop/CenterContainer/MarginContainer/VBoxContainer/Score"]
+visible = false
+margin_left = 130.0
+margin_top = 773.0
+margin_right = 641.0
+margin_bottom = 903.0
+rect_scale = Vector2( 0.9, 0.9 )
+texture = ExtResource( 18 )
+
+[node name="explanation" type="Label" parent="Upgrades_shop/CenterContainer/MarginContainer/VBoxContainer/Score/text_bar"]
+margin_left = 2.0
+margin_top = 19.0
+margin_right = 2008.0
+margin_bottom = 417.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 1 )
+text = "Increase your life, follow your destiny..."
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
+
+[node name="up_decor" type="Sprite" parent="Upgrades_shop/CenterContainer/MarginContainer/VBoxContainer/Score"]
+position = Vector2( 355, 426 )
+texture = ExtResource( 28 )
+
+[node name="Buy" type="TextureButton" parent="Upgrades_shop/CenterContainer/MarginContainer/VBoxContainer/Score"]
+margin_left = 282.0
+margin_top = 421.0
+margin_right = 429.0
+margin_bottom = 568.0
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 14 )
+texture_disabled = ExtResource( 14 )
+
+[node name="Price" type="Label" parent="Upgrades_shop/CenterContainer/MarginContainer/VBoxContainer/Score/Buy"]
+margin_left = -101.0
+margin_top = -398.0
+margin_right = 1584.0
+margin_bottom = -110.0
+rect_scale = Vector2( 0.2, 0.2 )
+custom_fonts/font = SubResource( 2 )
+text = "100"
+align = 1
+valign = 1
+
+[node name="Bar" type="Node2D" parent="Upgrades_shop/CenterContainer/MarginContainer/VBoxContainer/Score"]
+position = Vector2( 18, -104 )
+
+[node name="1" type="Sprite" parent="Upgrades_shop/CenterContainer/MarginContainer/VBoxContainer/Score/Bar"]
+position = Vector2( 104, 597 )
+texture = ExtResource( 20 )
+hframes = 2
+
+[node name="2" type="Sprite" parent="Upgrades_shop/CenterContainer/MarginContainer/VBoxContainer/Score/Bar"]
+position = Vector2( 569, 599 )
+texture = ExtResource( 20 )
+hframes = 2
+
+[node name="3" type="Sprite" parent="Upgrades_shop/CenterContainer/MarginContainer/VBoxContainer/Score/Bar"]
+position = Vector2( 180, 446 )
+texture = ExtResource( 20 )
+hframes = 2
+
+[node name="4" type="Sprite" parent="Upgrades_shop/CenterContainer/MarginContainer/VBoxContainer/Score/Bar"]
+position = Vector2( 493, 444 )
+texture = ExtResource( 20 )
+hframes = 2
+
+[node name="5" type="Sprite" parent="Upgrades_shop/CenterContainer/MarginContainer/VBoxContainer/Score/Bar"]
+position = Vector2( 337, 377 )
+texture = ExtResource( 20 )
+hframes = 2
+
+[node name="Jump" type="TextureRect" parent="Upgrades_shop/CenterContainer/MarginContainer/VBoxContainer"]
+margin_top = 2703.0
+margin_right = 700.0
+margin_bottom = 3476.0
+texture = ExtResource( 3 )
+
+[node name="icon" type="Sprite" parent="Upgrades_shop/CenterContainer/MarginContainer/VBoxContainer/Jump"]
+position = Vector2( 86, 163 )
+scale = Vector2( 0.138672, 0.138672 )
+texture = ExtResource( 30 )
+
+[node name="text_bar" type="TextureRect" parent="Upgrades_shop/CenterContainer/MarginContainer/VBoxContainer/Jump"]
+visible = false
+margin_left = 130.0
+margin_top = 773.0
+margin_right = 641.0
+margin_bottom = 903.0
+rect_scale = Vector2( 0.9, 0.9 )
+texture = ExtResource( 18 )
+
+[node name="explanation" type="Label" parent="Upgrades_shop/CenterContainer/MarginContainer/VBoxContainer/Jump/text_bar"]
+margin_left = 2.0
+margin_top = 19.0
+margin_right = 2008.0
+margin_bottom = 417.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 1 )
+text = "Increase your life, follow your destiny..."
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
+
+[node name="up_decor" type="Sprite" parent="Upgrades_shop/CenterContainer/MarginContainer/VBoxContainer/Jump"]
+position = Vector2( 337, 476 )
+texture = ExtResource( 4 )
+
+[node name="Buy" type="TextureButton" parent="Upgrades_shop/CenterContainer/MarginContainer/VBoxContainer/Jump"]
+margin_left = 264.0
+margin_top = 541.0
+margin_right = 411.0
+margin_bottom = 688.0
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 14 )
+texture_disabled = ExtResource( 14 )
+
+[node name="Price" type="Label" parent="Upgrades_shop/CenterContainer/MarginContainer/VBoxContainer/Jump/Buy"]
+margin_left = -83.0
+margin_top = -518.0
+margin_right = 1607.0
+margin_bottom = -230.0
+rect_scale = Vector2( 0.2, 0.2 )
+custom_fonts/font = SubResource( 2 )
+text = "100"
+align = 1
+valign = 1
+
+[node name="Bar" type="Node2D" parent="Upgrades_shop/CenterContainer/MarginContainer/VBoxContainer/Jump"]
+position = Vector2( 0, 15.9998 )
+
+[node name="1" type="Sprite" parent="Upgrades_shop/CenterContainer/MarginContainer/VBoxContainer/Jump/Bar"]
+position = Vector2( 157, 525 )
+texture = ExtResource( 20 )
+hframes = 2
+
+[node name="2" type="Sprite" parent="Upgrades_shop/CenterContainer/MarginContainer/VBoxContainer/Jump/Bar"]
+position = Vector2( 241, 440 )
+texture = ExtResource( 20 )
+hframes = 2
+
+[node name="3" type="Sprite" parent="Upgrades_shop/CenterContainer/MarginContainer/VBoxContainer/Jump/Bar"]
+position = Vector2( 336, 356 )
+texture = ExtResource( 20 )
+hframes = 2
+
+[node name="4" type="Sprite" parent="Upgrades_shop/CenterContainer/MarginContainer/VBoxContainer/Jump/Bar"]
+position = Vector2( 429, 272 )
+texture = ExtResource( 20 )
+hframes = 2
+
+[node name="5" type="Sprite" parent="Upgrades_shop/CenterContainer/MarginContainer/VBoxContainer/Jump/Bar"]
+position = Vector2( 515, 192 )
+texture = ExtResource( 20 )
+hframes = 2
+
+[node name="Skins_shop" type="ScrollContainer" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 98.0
+margin_top = 15.0
+margin_right = 74.0
+margin_bottom = -12.0
+scroll_horizontal_enabled = false
+
+[node name="CenterContainer" type="CenterContainer" parent="Skins_shop"]
+margin_right = 884.0
+margin_bottom = 6000.0
+rect_min_size = Vector2( 0, 6000 )
+mouse_filter = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Skins_shop/CenterContainer"]
+margin_top = 461.0
+margin_right = 884.0
+margin_bottom = 5539.0
+mouse_filter = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Skins_shop/CenterContainer/MarginContainer"]
+margin_right = 884.0
+margin_bottom = 5078.0
+custom_constants/separation = 256
+
+[node name="Normal" type="TextureRect" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer"]
+margin_right = 884.0
+margin_bottom = 506.0
+texture = ExtResource( 36 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Normal"]
+margin_left = 60.0
+margin_top = 487.0
+margin_right = 882.0
+margin_bottom = 729.0
+custom_constants/separation = 108
+
+[node name="normal_circle" type="TextureButton" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Normal/HBoxContainer" groups=["shop_button_1"]]
+margin_right = 173.0
+margin_bottom = 242.0
+rect_pivot_offset = Vector2( 0.7, 0 )
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 7 )
+
+[node name="icon" type="Sprite" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Normal/HBoxContainer/normal_circle"]
+position = Vector2( 84, -202 )
+texture = ExtResource( 16 )
+
+[node name="normal_rectangle" type="TextureButton" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Normal/HBoxContainer" groups=["shop_button_2"]]
+margin_left = 281.0
+margin_right = 454.0
+margin_bottom = 242.0
+rect_pivot_offset = Vector2( 0.7, 0 )
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 7 )
+
+[node name="Price" type="Label" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Normal/HBoxContainer/normal_rectangle"]
+visible = false
+margin_left = 8.5
+margin_top = -3.5
+margin_right = 456.5
+margin_bottom = 252.5
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "10"
+align = 1
+valign = 1
+
+[node name="icon" type="Sprite" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Normal/HBoxContainer/normal_rectangle"]
+position = Vector2( 89, -208 )
+texture = ExtResource( 22 )
+
+[node name="normal_triangle" type="TextureButton" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Normal/HBoxContainer" groups=["shop_button_3"]]
+margin_left = 562.0
+margin_right = 735.0
+margin_bottom = 242.0
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 7 )
+
+[node name="Price" type="Label" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Normal/HBoxContainer/normal_triangle"]
+visible = false
+margin_left = 8.5
+margin_top = -3.5
+margin_right = 456.5
+margin_bottom = 252.5
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "10"
+align = 1
+valign = 1
+
+[node name="icon" type="Sprite" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Normal/HBoxContainer/normal_triangle"]
+position = Vector2( 99, -204 )
+texture = ExtResource( 15 )
+
+[node name="Price" type="Label" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Normal"]
+anchor_left = 0.26414
+anchor_top = -0.900198
+anchor_right = 1.0379
+anchor_bottom = -0.836957
+margin_left = 68.5
+margin_top = 483.5
+margin_right = 516.5
+margin_bottom = 739.5
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "10"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="video_icon" type="Sprite" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Normal"]
+visible = false
+position = Vector2( 448, 59 )
+scale = Vector2( 0.113281, 0.113281 )
+texture = ExtResource( 52 )
+
+[node name="Empty" type="TextureRect" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer"]
+margin_top = 762.0
+margin_right = 884.0
+margin_bottom = 1268.0
+texture = ExtResource( 36 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Empty"]
+margin_left = 60.0
+margin_top = 487.0
+margin_right = 882.0
+margin_bottom = 729.0
+custom_constants/separation = 108
+
+[node name="empty_circle" type="TextureButton" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Empty/HBoxContainer" groups=["shop_button_1"]]
+margin_right = 173.0
+margin_bottom = 242.0
+rect_pivot_offset = Vector2( 0.7, 0 )
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 7 )
+
+[node name="icon" type="Sprite" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Empty/HBoxContainer/empty_circle"]
+position = Vector2( 84, -202 )
+texture = ExtResource( 51 )
+
+[node name="empty_rectangle" type="TextureButton" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Empty/HBoxContainer" groups=["shop_button_2"]]
+margin_left = 281.0
+margin_right = 454.0
+margin_bottom = 242.0
+rect_pivot_offset = Vector2( 0.7, 0 )
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 7 )
+
+[node name="Price" type="Label" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Empty/HBoxContainer/empty_rectangle"]
+visible = false
+margin_left = 8.5
+margin_top = -3.5
+margin_right = 456.5
+margin_bottom = 252.5
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "10"
+align = 1
+valign = 1
+
+[node name="icon" type="Sprite" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Empty/HBoxContainer/empty_rectangle"]
+position = Vector2( 89, -208 )
+texture = ExtResource( 41 )
+
+[node name="empty_triangle" type="TextureButton" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Empty/HBoxContainer" groups=["shop_button_3"]]
+margin_left = 562.0
+margin_right = 735.0
+margin_bottom = 242.0
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 7 )
+
+[node name="Price" type="Label" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Empty/HBoxContainer/empty_triangle"]
+visible = false
+margin_left = 8.5
+margin_top = -3.5
+margin_right = 456.5
+margin_bottom = 252.5
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "10"
+align = 1
+valign = 1
+
+[node name="icon" type="Sprite" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Empty/HBoxContainer/empty_triangle"]
+position = Vector2( 99, -204 )
+texture = ExtResource( 46 )
+
+[node name="Price" type="Label" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Empty"]
+anchor_left = 0.259615
+anchor_top = -0.900198
+anchor_right = 1.04242
+anchor_bottom = -0.836957
+margin_left = 68.5
+margin_top = 483.5
+margin_right = 516.5
+margin_bottom = 739.5
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "10"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="video_icon" type="Sprite" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Empty"]
+position = Vector2( 438, 65 )
+scale = Vector2( 0.09375, 0.09375 )
+texture = ExtResource( 52 )
+
+[node name="Cracked" type="TextureRect" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer"]
+margin_top = 1524.0
+margin_right = 884.0
+margin_bottom = 2030.0
+texture = ExtResource( 36 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Cracked"]
+margin_left = 60.0
+margin_top = 487.0
+margin_right = 882.0
+margin_bottom = 729.0
+custom_constants/separation = 108
+
+[node name="cracked_circle" type="TextureButton" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Cracked/HBoxContainer" groups=["shop_button_1"]]
+margin_right = 173.0
+margin_bottom = 242.0
+rect_pivot_offset = Vector2( 0.7, 0 )
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 7 )
+
+[node name="icon" type="Sprite" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Cracked/HBoxContainer/cracked_circle"]
+position = Vector2( 84, -202 )
+texture = ExtResource( 48 )
+
+[node name="cracked_rectangle" type="TextureButton" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Cracked/HBoxContainer" groups=["shop_button_2"]]
+margin_left = 281.0
+margin_right = 454.0
+margin_bottom = 242.0
+rect_pivot_offset = Vector2( 0.7, 0 )
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 7 )
+
+[node name="Price" type="Label" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Cracked/HBoxContainer/cracked_rectangle"]
+visible = false
+margin_left = 8.5
+margin_top = -3.5
+margin_right = 456.5
+margin_bottom = 252.5
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "10"
+align = 1
+valign = 1
+
+[node name="icon" type="Sprite" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Cracked/HBoxContainer/cracked_rectangle"]
+position = Vector2( 89, -208 )
+texture = ExtResource( 49 )
+
+[node name="cracked_triangle" type="TextureButton" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Cracked/HBoxContainer" groups=["shop_button_3"]]
+margin_left = 562.0
+margin_right = 735.0
+margin_bottom = 242.0
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 7 )
+
+[node name="Price" type="Label" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Cracked/HBoxContainer/cracked_triangle"]
+visible = false
+margin_left = 8.5
+margin_top = -3.5
+margin_right = 456.5
+margin_bottom = 252.5
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "10"
+align = 1
+valign = 1
+
+[node name="icon" type="Sprite" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Cracked/HBoxContainer/cracked_triangle"]
+position = Vector2( 99, -204 )
+texture = ExtResource( 44 )
+
+[node name="Price" type="Label" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Cracked"]
+anchor_left = 0.260747
+anchor_top = -0.900198
+anchor_right = 1.03903
+anchor_bottom = -0.836957
+margin_left = 68.5
+margin_top = 483.5
+margin_right = 516.5
+margin_bottom = 739.5
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "10"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="video_icon" type="Sprite" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Cracked"]
+visible = false
+position = Vector2( 442, 60 )
+scale = Vector2( 0.101562, 0.101562 )
+texture = ExtResource( 52 )
+
+[node name="Thorny" type="TextureRect" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer"]
+margin_top = 2286.0
+margin_right = 884.0
+margin_bottom = 2792.0
+texture = ExtResource( 36 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Thorny"]
+margin_left = 60.0
+margin_top = 487.0
+margin_right = 882.0
+margin_bottom = 729.0
+custom_constants/separation = 108
+
+[node name="thorny_circle" type="TextureButton" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Thorny/HBoxContainer" groups=["shop_button_1"]]
+margin_right = 173.0
+margin_bottom = 242.0
+rect_pivot_offset = Vector2( 0.7, 0 )
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 7 )
+
+[node name="icon" type="Sprite" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Thorny/HBoxContainer/thorny_circle"]
+position = Vector2( 84, -202 )
+texture = ExtResource( 27 )
+
+[node name="thorny_rectangle" type="TextureButton" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Thorny/HBoxContainer" groups=["shop_button_2"]]
+margin_left = 281.0
+margin_right = 454.0
+margin_bottom = 242.0
+rect_pivot_offset = Vector2( 0.7, 0 )
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 7 )
+
+[node name="Price" type="Label" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Thorny/HBoxContainer/thorny_rectangle"]
+visible = false
+margin_left = 8.5
+margin_top = -3.5
+margin_right = 456.5
+margin_bottom = 252.5
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "10"
+align = 1
+valign = 1
+
+[node name="icon" type="Sprite" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Thorny/HBoxContainer/thorny_rectangle"]
+position = Vector2( 89, -208 )
+texture = ExtResource( 40 )
+
+[node name="thorny_triangle" type="TextureButton" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Thorny/HBoxContainer" groups=["shop_button_3"]]
+margin_left = 562.0
+margin_right = 735.0
+margin_bottom = 242.0
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 7 )
+
+[node name="Price" type="Label" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Thorny/HBoxContainer/thorny_triangle"]
+visible = false
+margin_left = 8.5
+margin_top = -3.5
+margin_right = 456.5
+margin_bottom = 252.5
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "10"
+align = 1
+valign = 1
+
+[node name="icon" type="Sprite" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Thorny/HBoxContainer/thorny_triangle"]
+position = Vector2( 99, -204 )
+texture = ExtResource( 47 )
+
+[node name="Price" type="Label" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Thorny"]
+anchor_left = 0.259615
+anchor_top = -0.900198
+anchor_right = 1.056
+anchor_bottom = -0.836957
+margin_left = 68.5
+margin_top = 483.5
+margin_right = 516.5
+margin_bottom = 739.5
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "10"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="video_icon" type="Sprite" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Thorny"]
+position = Vector2( 442, 60 )
+scale = Vector2( 0.0976562, 0.0976562 )
+texture = ExtResource( 52 )
+
+[node name="Emoji" type="TextureRect" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer"]
+margin_top = 3048.0
+margin_right = 884.0
+margin_bottom = 3554.0
+texture = ExtResource( 36 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Emoji"]
+margin_left = 60.0
+margin_top = 487.0
+margin_right = 882.0
+margin_bottom = 729.0
+custom_constants/separation = 108
+
+[node name="emoji_circle" type="TextureButton" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Emoji/HBoxContainer" groups=["shop_button_1"]]
+margin_right = 173.0
+margin_bottom = 242.0
+rect_pivot_offset = Vector2( 0.7, 0 )
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 7 )
+
+[node name="icon" type="Sprite" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Emoji/HBoxContainer/emoji_circle"]
+position = Vector2( 84, -202 )
+texture = ExtResource( 43 )
+
+[node name="emoji_rectangle" type="TextureButton" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Emoji/HBoxContainer" groups=["shop_button_2"]]
+margin_left = 281.0
+margin_right = 454.0
+margin_bottom = 242.0
+rect_pivot_offset = Vector2( 0.7, 0 )
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 7 )
+
+[node name="Price" type="Label" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Emoji/HBoxContainer/emoji_rectangle"]
+visible = false
+margin_left = 8.5
+margin_top = -3.5
+margin_right = 456.5
+margin_bottom = 252.5
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "10"
+align = 1
+valign = 1
+
+[node name="icon" type="Sprite" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Emoji/HBoxContainer/emoji_rectangle"]
+position = Vector2( 89, -208 )
+texture = ExtResource( 38 )
+
+[node name="emoji_triangle" type="TextureButton" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Emoji/HBoxContainer" groups=["shop_button_3"]]
+margin_left = 562.0
+margin_right = 735.0
+margin_bottom = 242.0
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 7 )
+
+[node name="Price" type="Label" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Emoji/HBoxContainer/emoji_triangle"]
+visible = false
+margin_left = 8.5
+margin_top = -3.5
+margin_right = 456.5
+margin_bottom = 252.5
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "10"
+align = 1
+valign = 1
+
+[node name="icon" type="Sprite" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Emoji/HBoxContainer/emoji_triangle"]
+position = Vector2( 99, -204 )
+texture = ExtResource( 25 )
+
+[node name="Price" type="Label" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Emoji"]
+anchor_left = 0.260747
+anchor_top = -0.900198
+anchor_right = 1.03903
+anchor_bottom = -0.836957
+margin_left = 68.5
+margin_top = 483.5
+margin_right = 516.5
+margin_bottom = 739.5
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "10"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="video_icon" type="Sprite" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Emoji"]
+position = Vector2( 443, 60 )
+scale = Vector2( 0.101563, 0.101563 )
+texture = ExtResource( 52 )
+
+[node name="Gentleman" type="TextureRect" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer"]
+margin_top = 3810.0
+margin_right = 884.0
+margin_bottom = 4316.0
+texture = ExtResource( 36 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Gentleman"]
+margin_left = 60.0
+margin_top = 487.0
+margin_right = 882.0
+margin_bottom = 729.0
+custom_constants/separation = 108
+
+[node name="gentleman_circle" type="TextureButton" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Gentleman/HBoxContainer" groups=["shop_button_1"]]
+margin_right = 173.0
+margin_bottom = 242.0
+rect_pivot_offset = Vector2( 0.7, 0 )
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 7 )
+
+[node name="icon" type="Sprite" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Gentleman/HBoxContainer/gentleman_circle"]
+position = Vector2( 84, -202 )
+texture = ExtResource( 45 )
+
+[node name="gentleman_rectangle" type="TextureButton" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Gentleman/HBoxContainer" groups=["shop_button_2"]]
+margin_left = 281.0
+margin_right = 454.0
+margin_bottom = 242.0
+rect_pivot_offset = Vector2( 0.7, 0 )
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 7 )
+
+[node name="Price" type="Label" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Gentleman/HBoxContainer/gentleman_rectangle"]
+visible = false
+margin_left = 8.5
+margin_top = -3.5
+margin_right = 456.5
+margin_bottom = 252.5
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "10"
+align = 1
+valign = 1
+
+[node name="icon" type="Sprite" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Gentleman/HBoxContainer/gentleman_rectangle"]
+position = Vector2( 89, -208 )
+texture = ExtResource( 26 )
+
+[node name="gentleman_triangle" type="TextureButton" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Gentleman/HBoxContainer" groups=["shop_button_3"]]
+margin_left = 562.0
+margin_right = 735.0
+margin_bottom = 242.0
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 7 )
+
+[node name="Price" type="Label" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Gentleman/HBoxContainer/gentleman_triangle"]
+visible = false
+margin_left = 8.5
+margin_top = -3.5
+margin_right = 456.5
+margin_bottom = 252.5
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "10"
+align = 1
+valign = 1
+
+[node name="icon" type="Sprite" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Gentleman/HBoxContainer/gentleman_triangle"]
+position = Vector2( 99, -204 )
+texture = ExtResource( 39 )
+
+[node name="Price" type="Label" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Gentleman"]
+anchor_left = 0.259615
+anchor_top = -0.900198
+anchor_right = 1.04695
+anchor_bottom = -0.836957
+margin_left = 68.5
+margin_top = 483.5
+margin_right = 516.5
+margin_bottom = 739.5
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "10"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="video_icon" type="Sprite" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Gentleman"]
+position = Vector2( 442, 62 )
+scale = Vector2( 0.105469, 0.105469 )
+texture = ExtResource( 52 )
+
+[node name="Devil" type="TextureRect" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer"]
+margin_top = 4572.0
+margin_right = 884.0
+margin_bottom = 5078.0
+texture = ExtResource( 36 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Devil"]
+margin_left = 60.0
+margin_top = 487.0
+margin_right = 882.0
+margin_bottom = 729.0
+custom_constants/separation = 108
+
+[node name="devil_circle" type="TextureButton" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Devil/HBoxContainer" groups=["shop_button_1"]]
+margin_right = 173.0
+margin_bottom = 242.0
+rect_pivot_offset = Vector2( 0.7, 0 )
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 7 )
+
+[node name="icon" type="Sprite" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Devil/HBoxContainer/devil_circle"]
+position = Vector2( 84, -202 )
+texture = ExtResource( 37 )
+
+[node name="devil_rectangle" type="TextureButton" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Devil/HBoxContainer" groups=["shop_button_2"]]
+margin_left = 281.0
+margin_right = 454.0
+margin_bottom = 242.0
+rect_pivot_offset = Vector2( 0.7, 0 )
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 7 )
+
+[node name="Price" type="Label" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Devil/HBoxContainer/devil_rectangle"]
+visible = false
+margin_left = 8.5
+margin_top = -3.5
+margin_right = 456.5
+margin_bottom = 252.5
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "10"
+align = 1
+valign = 1
+
+[node name="icon" type="Sprite" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Devil/HBoxContainer/devil_rectangle"]
+position = Vector2( 89, -208 )
+texture = ExtResource( 50 )
+
+[node name="devil_triangle" type="TextureButton" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Devil/HBoxContainer" groups=["shop_button_3"]]
+margin_left = 562.0
+margin_right = 735.0
+margin_bottom = 242.0
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 7 )
+
+[node name="Price" type="Label" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Devil/HBoxContainer/devil_triangle"]
+visible = false
+margin_left = 8.5
+margin_top = -3.5
+margin_right = 456.5
+margin_bottom = 252.5
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "10"
+align = 1
+valign = 1
+
+[node name="icon" type="Sprite" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Devil/HBoxContainer/devil_triangle"]
+position = Vector2( 99, -204 )
+texture = ExtResource( 42 )
+
+[node name="Price" type="Label" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Devil"]
+anchor_left = 0.260747
+anchor_top = -0.900198
+anchor_right = 1.04355
+anchor_bottom = -0.836957
+margin_left = 68.5
+margin_top = 483.5
+margin_right = 516.5
+margin_bottom = 739.5
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "10"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="video_icon" type="Sprite" parent="Skins_shop/CenterContainer/MarginContainer/VBoxContainer/Devil"]
+position = Vector2( 442, 62 )
+scale = Vector2( 0.0976563, 0.0976563 )
+texture = ExtResource( 52 )
+
+[node name="back" type="TextureButton" parent="."]
+margin_left = 897.0
+margin_top = 1808.0
+margin_right = 1092.0
+margin_bottom = 1986.0
+rect_rotation = -89.9999
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 11 )
+
+[node name="admob_test_label" type="Label" parent="."]
+visible = false
+margin_left = 78.0
+margin_top = 367.0
+margin_right = 3834.0
+margin_bottom = 857.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "admob_test_label"
+align = 1
+valign = 1
+autowrap = true
+
+[connection signal="pressed" from="main_shop_buttons/Upgrades" to="." method="_on_Upgrades_pressed"]
+[connection signal="pressed" from="main_shop_buttons/Skins" to="." method="_on_Skins_pressed"]
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]

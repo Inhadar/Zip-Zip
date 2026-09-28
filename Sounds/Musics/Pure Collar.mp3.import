@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Pure Collar.mp3-533a261f6ab1e20300a1d40d1fc12faa.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Musics/Pure Collar.mp3"
+dest_files=[ "res://.import/Pure Collar.mp3-533a261f6ab1e20300a1d40d1fc12faa.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

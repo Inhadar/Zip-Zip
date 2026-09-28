@@ -1,0 +1,235 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://UI/Main_menu.gd" type="Script" id=1]
+[ext_resource path="res://zip_zip/Capture.PNG" type="Texture" id=2]
+[ext_resource path="res://zip_zip/UI/Shop_items/simple_button_pres.png" type="Texture" id=3]
+[ext_resource path="res://Fonts/main_font.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://zip_zip/New_Style/main/main_background.png" type="Texture" id=5]
+[ext_resource path="res://zip_zip/UI/Shop_items/simple_button_rel.png" type="Texture" id=6]
+[ext_resource path="res://zip_zip/New_Style/main/main_label.png" type="Texture" id=7]
+[ext_resource path="res://zip_zip/New_Style/Buttons/play_rel.png" type="Texture" id=8]
+[ext_resource path="res://zip_zip/New_Style/border_decor.png" type="Texture" id=9]
+[ext_resource path="res://zip_zip/New_Style/Buttons/shop_rel.png" type="Texture" id=12]
+[ext_resource path="res://zip_zip/New_Style/Buttons/play_pres.png" type="Texture" id=13]
+[ext_resource path="res://zip_zip/New_Style/Buttons/back_rel.png" type="Texture" id=14]
+[ext_resource path="res://zip_zip/New_Style/Buttons/settings_pres.png" type="Texture" id=15]
+[ext_resource path="res://zip_zip/New_Style/Buttons/shop_pres.png" type="Texture" id=16]
+[ext_resource path="res://zip_zip/New_Style/Buttons/settings_rel.png" type="Texture" id=17]
+[ext_resource path="res://zip_zip/New_Style/Buttons/back_pres.png" type="Texture" id=18]
+[ext_resource path="res://zip_zip/New_Style/board.png" type="Texture" id=19]
+[ext_resource path="res://zip_zip/New_Style/Shop_page/shop_button_rel.png" type="Texture" id=20]
+[ext_resource path="res://zip_zip/New_Style/Shop_page/shop_button_pres.png" type="Texture" id=21]
+[ext_resource path="res://zip_zip/New_Style/Shop_page/skin_shop_button_rel.png" type="Texture" id=22]
+
+[sub_resource type="DynamicFont" id=2]
+size = 128
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 256
+font_data = ExtResource( 4 )
+
+[node name="Node" type="Node"]
+pause_mode = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 1492.0, 1356.0 ],
+"_edit_vertical_guides_": [ 556.0, 360.0, 747.0, -334.0 ]
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 65.0
+margin_top = 120.0
+margin_right = -61.0
+margin_bottom = -43.0
+texture = ExtResource( 7 )
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0470588, 0.690196, 0.662745, 1 )
+
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Start" type="TextureButton" parent="Control"]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -172.0
+margin_top = 1576.0
+margin_right = 176.0
+margin_bottom = -242.0
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 13 )
+
+[node name="Shop" type="TextureButton" parent="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 208.0
+margin_top = 299.0
+margin_right = 429.0
+margin_bottom = 494.0
+texture_normal = ExtResource( 12 )
+texture_pressed = ExtResource( 16 )
+stretch_mode = 2
+
+[node name="Settings" type="TextureButton" parent="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -423.0
+margin_top = 316.0
+margin_right = -221.0
+margin_bottom = 518.0
+texture_normal = ExtResource( 17 )
+texture_pressed = ExtResource( 15 )
+stretch_mode = 2
+
+[node name="Qecal" type="TextureButton" parent="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -190.0
+margin_top = 51.0001
+margin_right = -62.0
+margin_bottom = 108.0
+rect_scale = Vector2( 3, 2.5 )
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="Control/Qecal"]
+margin_left = 16.0
+margin_top = 10.0
+margin_right = 439.0
+margin_bottom = 154.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 2 )
+text = "Boss1"
+align = 1
+valign = 1
+
+[node name="score_b" type="TextureButton" parent="Control"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -70.0
+margin_top = -304.0
+margin_right = 77.0
+margin_bottom = -157.0
+texture_normal = ExtResource( 20 )
+texture_pressed = ExtResource( 21 )
+
+[node name="reset_s" type="TextureButton" parent="Control"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -77.0
+margin_top = 230.0
+margin_right = 96.0
+margin_bottom = 403.0
+texture_normal = ExtResource( 22 )
+texture_pressed = ExtResource( 21 )
+
+[node name="reset_up" type="TextureButton" parent="Control"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 278.0
+margin_top = -50.0001
+margin_right = 451.0
+margin_bottom = 123.0
+texture_normal = ExtResource( 22 )
+texture_pressed = ExtResource( 21 )
+
+[node name="reset_skins" type="TextureButton" parent="Control"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -447.0
+margin_top = -34.9999
+margin_right = -274.0
+margin_bottom = 138.0
+texture_normal = ExtResource( 22 )
+texture_pressed = ExtResource( 21 )
+
+[node name="Quit" type="TextureButton" parent="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -84.0
+margin_top = 897.0
+margin_right = 111.0
+margin_bottom = 1075.0
+texture_normal = ExtResource( 14 )
+texture_pressed = ExtResource( 18 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 554, 607 )
+texture = ExtResource( 19 )
+
+[node name="Score" type="Label" parent="Sprite2"]
+modulate = Color( 0.027451, 0.231373, 0.298039, 1 )
+anchor_right = 0.386897
+anchor_bottom = 0.324468
+margin_left = -330.0
+margin_top = -60.0001
+margin_right = 1015.0
+margin_bottom = 177.0
+rect_scale = Vector2( 0.4, 0.4 )
+custom_fonts/font = SubResource( 1 )
+text = "00000000"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Capture" type="Sprite" parent="."]
+position = Vector2( -835, 257 )
+texture = ExtResource( 2 )
+
+[connection signal="pressed" from="Control/Start" to="." method="_on_Start_pressed"]
+[connection signal="pressed" from="Control/Shop" to="." method="_on_Shop_pressed"]
+[connection signal="pressed" from="Control/Settings" to="." method="_on_Settings_pressed"]
+[connection signal="pressed" from="Control/Qecal" to="." method="_on_Qecal_pressed"]
+[connection signal="pressed" from="Control/score_b" to="." method="_on_score_b_pressed"]
+[connection signal="pressed" from="Control/reset_s" to="." method="_on_reset_s_pressed"]
+[connection signal="pressed" from="Control/reset_up" to="." method="_on_reset_up_pressed"]
+[connection signal="pressed" from="Control/reset_skins" to="." method="_on_reset_skins_pressed"]
+[connection signal="pressed" from="Control/Quit" to="." method="_on_Quit_pressed"]

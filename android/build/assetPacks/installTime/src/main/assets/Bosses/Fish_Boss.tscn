@@ -1,0 +1,1231 @@
+[gd_scene load_steps=37 format=2]
+
+[ext_resource path="res://Bosses/Fish_Boss.gd" type="Script" id=1]
+[ext_resource path="res://zip_zip/Boss/phase_1.png" type="Texture" id=2]
+[ext_resource path="res://Bosses/Boss_powers/StarShoot.tscn" type="PackedScene" id=3]
+[ext_resource path="res://zip_zip/star.png" type="Texture" id=4]
+[ext_resource path="res://WShape/WShape.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Levels/Boss_1/Phase_3/Layer 2.png" type="Texture" id=6]
+[ext_resource path="res://zip_zip/Arrow.png" type="Texture" id=7]
+[ext_resource path="res://zip_zip/Explosion.png" type="Texture" id=8]
+[ext_resource path="res://Sounds/Fish_Boss_Sounds/Laugh.wav" type="AudioStream" id=9]
+[ext_resource path="res://Sounds/Fish_Boss_Sounds/anime_charge_03-96230.wav" type="AudioStream" id=10]
+[ext_resource path="res://Sounds/Fish_Boss_Sounds/magic-strike-5856.wav" type="AudioStream" id=11]
+[ext_resource path="res://Sounds/Fish_Boss_Sounds/Laser.wav" type="AudioStream" id=12]
+[ext_resource path="res://Sounds/Fish_Boss_Sounds/laser_active.wav" type="AudioStream" id=13]
+[ext_resource path="res://Sounds/Fish_Boss_Sounds/power-down-7103.wav" type="AudioStream" id=14]
+[ext_resource path="res://Sounds/Fish_Boss_Sounds/Laugh2.wav" type="AudioStream" id=15]
+[ext_resource path="res://Sounds/Sound_effects/Mover_Tile.wav" type="AudioStream" id=16]
+[ext_resource path="res://Sounds/Fish_Boss_Sounds/monster-roar-6985.wav" type="AudioStream" id=17]
+[ext_resource path="res://Sounds/Fish_Boss_Sounds/whoosh-6316.wav" type="AudioStream" id=18]
+[ext_resource path="res://Sounds/Sound_effects/explosion-36210.wav" type="AudioStream" id=19]
+[ext_resource path="res://Sounds/Fish_Boss_Sounds/bone-crack-121580.wav" type="AudioStream" id=20]
+[ext_resource path="res://Sounds/Fish_Boss_Sounds/explosion-6055.wav" type="AudioStream" id=21]
+
+[sub_resource type="Shader" id=21]
+code = "shader_type canvas_item;
+
+uniform vec2 global_position;
+uniform vec2 screen_size;
+uniform float force;
+uniform float size;
+uniform float thickness;
+
+void fragment(){
+	vec2 center = global_position;
+	float ratio = SCREEN_PIXEL_SIZE.x / SCREEN_PIXEL_SIZE.y;
+	center.x = center.x / screen_size.x;
+	center.x = (center.x - 0.5) / ratio + 0.5;
+	center.y = (screen_size.y - center.y) / screen_size.y;
+	vec2 scaledUV = (SCREEN_UV - vec2(0.5, 0.0) ) / vec2(ratio, 1.0) + vec2(0.5, 0.0);
+	float mask = (1.0 - smoothstep(size-0.1, size, length(scaledUV - center))) * smoothstep(size-thickness-0.1, size-thickness, length(scaledUV - center));
+	vec2 disp = normalize(SCREEN_UV - center) * force * mask;
+	COLOR = texture(SCREEN_TEXTURE, SCREEN_UV - disp);
+}"
+
+[sub_resource type="ShaderMaterial" id=22]
+shader = SubResource( 21 )
+shader_param/global_position = Vector2( 0.621, 0 )
+shader_param/screen_size = Vector2( 1080, 2160 )
+shader_param/force = 0.241
+shader_param/size = null
+shader_param/thickness = null
+
+[sub_resource type="RectangleShape2D" id=24]
+extents = Vector2( 78.8021, 2149.6 )
+
+[sub_resource type="RectangleShape2D" id=14]
+extents = Vector2( 1756.62, 337.275 )
+
+[sub_resource type="RectangleShape2D" id=18]
+extents = Vector2( 162.5, 430 )
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 130.25, 223 )
+
+[sub_resource type="Animation" id=11]
+resource_name = "Bull"
+length = 2.0
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.9, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -30.0, -30.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.9, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 95, 0 ), Vector2( 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite/Tongue/Sprite:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.1, 0.2 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite/Tongue/Sprite:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -320, 420 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Sprite/Tongue/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Sprite/Tongue_hitbox/CollisionShape2D:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Sprite/Tongue/Arrow:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Sprite/Head/CollisionShape2D:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Boss_sound/Bull_Woosh:playing")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 1.3875 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[sub_resource type="Animation" id=16]
+resource_name = "Fish_Rage"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1.7, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 105.0, 105.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( -30, 24 ), Vector2( -33, -12 ), Vector2( -15, 15 ), Vector2( 36, -30 ), Vector2( -18, -63 ), Vector2( -39, -27 ), Vector2( 25, 34 ), Vector2( 68, 18 ), Vector2( 57, 79 ), Vector2( 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite/Tongue/Arrow:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite/Tongue/Sprite:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -8.08016 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Sprite/Tongue/Sprite:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -292.206, 478.155 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Sprite/Tongue/Sprite:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.1, 0.2 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Boss_sound/Fish_Rage:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Sprite/Head/CollisionShape2D:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "Idle"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -97 ), Vector2( 0, 0 ), Vector2( 0, 93 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite/Tongue/Sprite:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.1, 0.2 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite/Tongue/Sprite:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -311.18, 485.745 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Sprite/Tongue_hitbox/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Sprite/Tongue/CollisionShape2D:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Sprite/Tongue/Arrow:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Sprite/Tongue/Sprite:rotation_degrees")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -2.64314 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Sprite/Head/CollisionShape2D:disabled")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "Laser"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite/star:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite/Laser/Sprite/ColorRect:rect_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 2.4, 2.6, 7, 8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 22025, 0 ), Vector2( 22092, 202 ), Vector2( 22092, 202 ), Vector2( 21491, 772 ), Vector2( 21491, 772 ), Vector2( 22025, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite/Laser/Sprite/ColorRect:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 2.4, 2.6, 7, 8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -22086.2, 11.3853 ), Vector2( -22086.2, -98.6663 ), Vector2( -22086.2, -98.6663 ), Vector2( -21562.5, -387.078 ), Vector2( -21562.5, -387.078 ), Vector2( -22086.2, 15.1802 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite/Laser/Sprite/ColorRect:color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.2, 2.4, 2.6, 7, 8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 0.917647, 0, 1 ), Color( 1, 0.917647, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Sprite/Laser:enabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 2.6, 8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Sprite:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Sprite/Tongue/Sprite:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.1, 0.2 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Sprite/Tongue/Sprite:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -314.976, 470.565 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Sprite/Tongue/CollisionShape2D:disabled")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Sprite/Tongue_hitbox/CollisionShape2D:disabled")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Sprite/Tongue/Arrow:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Sprite/Tongue/Sprite:rotation_degrees")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -4.73491 ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Boss_sound/Laser_is_active:playing")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 2.6, 7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Boss_sound/Laser_power_down:playing")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0, 7, 8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("Sprite/Laser/CollisionShape2D:disabled")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0, 2.6, 7, 7.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, false, true ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("Sprite/Head/CollisionShape2D:disabled")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Laugh"
+length = 1.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.025, 0.5, 0.65, 0.8, 0.95, 1.1, 1.25, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, 16 ), Vector2( 0, 0 ), Vector2( 0, 16 ), Vector2( 0, 0 ), Vector2( 0, 16 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.025, 0.5, 1.25, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 45.0, 45.0, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite/Tongue/Sprite:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.1, 0.2 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite/Tongue/Sprite:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -307.386, 478.155 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Sprite/Tongue_hitbox/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Sprite/Tongue/CollisionShape2D:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Sprite/Tongue/Arrow:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Sprite/Head/CollisionShape2D:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "Ready_star"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite/star:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3.6, 4.7, 5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 3.12052, 3.12052 ), Vector2( 4, 4 ), Vector2( 4, 4 ), Vector2( 0.1, 0.1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite/star:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 3.6, 4.7, 5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ -15.0, 129.37, 129.37, -13.7738 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite/star:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 3.6, 4.7, 5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -1392, -268 ), Vector2( -1372, -244 ), Vector2( -1372, -244 ), Vector2( -1388, -252 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite/star:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 3.6, 4.7, 5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.945098, 1, 0, 1 ), Color( 0.945098, 1, 0, 1 ), Color( 0.945098, 1, 0, 1 ), Color( 0.945098, 1, 0, 0.0862745 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Sprite/star:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Sprite:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Sprite/Tongue/Sprite:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.1, 0.2 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Sprite/Tongue/Sprite:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -299.796, 466.771 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Sprite/Tongue/CollisionShape2D:disabled")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Sprite/Tongue_hitbox/CollisionShape2D:disabled")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Sprite/Tongue/Arrow:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Sprite/Tongue/Sprite:rotation_degrees")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -4.73491 ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Sprite/Head/CollisionShape2D:disabled")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=15]
+resource_name = "Tongue"
+length = 9.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2, 2.7, 3, 9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 74.9999, 74.9999, 0.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite/Tongue/Sprite:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -17.9521, -17.9521 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite/Tongue/Sprite:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 2, 2.7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -320, 420 ), Vector2( -728.407, 575.78 ), Vector2( -1819.56, 911.084 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Sprite/Tongue/Sprite:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 2, 2.7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.1, 0.2 ), Vector2( 0.1, 0.2 ), Vector2( 0.7, 0.7 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Sprite/Tongue/CollisionShape2D:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 2.7, 3.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Sprite:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 3.5, 3.6, 3.7, 3.8, 3.9, 4.5, 4.6, 4.7, 4.8, 4.9, 5.6, 5.7, 5.8, 5.9, 6, 6.6, 6.7, 6.8, 6.9, 7, 7.6, 7.7, 7.8, 7.9, 8, 8.6, 8.7, 8.8, 8.9, 9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 16, -12 ), Vector2( 0, 0 ), Vector2( 9, -19 ), Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 16, -12 ), Vector2( 0, 0 ), Vector2( 9, -19 ), Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 16, -12 ), Vector2( 0, 0 ), Vector2( 9, -19 ), Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 16, -12 ), Vector2( 0, 0 ), Vector2( 9, -19 ), Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 16, -12 ), Vector2( 0, 0 ), Vector2( 9, -19 ), Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 16, -12 ), Vector2( 0, 0 ), Vector2( 9, -19 ), Vector2( 0, 0 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Sprite/Tongue_hitbox/CollisionShape2D:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 3.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Sprite/Tongue/Arrow:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Sprite/Tongue/Arrow:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -2700, -500.924 ), Vector2( -2700, -796.926 ), Vector2( -2700, -1300 ), Vector2( -2700, -640 ), Vector2( -2700, -1300 ), Vector2( -2700, -640 ), Vector2( -2700, -1300 ), Vector2( -2700, -640 ), Vector2( -2700, -1300 ), Vector2( -2700, -640 ), Vector2( -2700, -1300 ), Vector2( -2700, -796.926 ), Vector2( -2700, -1300 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Boss_sound/Tongue:playing")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 2.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath(".:screen_shake_perm")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 3 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Sprite/Head/CollisionShape2D:disabled")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "damage"
+length = 0.55
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.4, 0.55 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Curve" id=23]
+_data = [ Vector2( 0, 0.642045 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[node name="Fish_Boss" type="Area2D"]
+material = SubResource( 22 )
+script = ExtResource( 1 )
+star = ExtResource( 3 )
+WS = ExtResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 2 )
+
+[node name="star" type="Sprite" parent="Sprite"]
+visible = false
+modulate = Color( 0.945098, 1, 0, 1 )
+position = Vector2( -1392, -268 )
+rotation = -0.261799
+scale = Vector2( 3.12052, 3.12052 )
+texture = ExtResource( 4 )
+
+[node name="Position2D" type="Position2D" parent="Sprite/star"]
+position = Vector2( 5.94922, 72.4385 )
+rotation = 0.240397
+scale = Vector2( 18.3821, 18.3821 )
+
+[node name="Laser" type="Area2D" parent="Sprite"]
+position = Vector2( -1624.21, -34.154 )
+rotation = 1.57079
+scale = Vector2( 5, 5 )
+
+[node name="Sprite" type="Sprite" parent="Sprite/Laser"]
+position = Vector2( -1.51807, -1.51788 )
+rotation = -1.57079
+scale = Vector2( 0.2, 0.2 )
+
+[node name="ColorRect" type="ColorRect" parent="Sprite/Laser/Sprite"]
+margin_left = -22086.2
+margin_top = 15.1802
+margin_right = -61.1992
+margin_bottom = 15.1802
+
+[node name="Position2D" type="Position2D" parent="Sprite/Laser"]
+position = Vector2( 1.90735e-06, -6.10352e-05 )
+rotation = -1.57079
+scale = Vector2( 0.2, 0.2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Laser"]
+position = Vector2( -0.771313, 2162.36 )
+shape = SubResource( 24 )
+disabled = true
+
+[node name="Tongue" type="Area2D" parent="Sprite" groups=["Tongue"]]
+visible = false
+
+[node name="Sprite" type="Sprite" parent="Sprite/Tongue"]
+position = Vector2( -314.976, 470.565 )
+rotation = -0.0826398
+scale = Vector2( 0.1, 0.2 )
+z_index = -1
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Tongue"]
+visible = false
+position = Vector2( -1841.52, 997.628 )
+rotation = -0.261799
+shape = SubResource( 14 )
+disabled = true
+
+[node name="Arrow" type="Sprite" parent="Sprite/Tongue"]
+visible = false
+modulate = Color( 1, 1, 1, 0.568627 )
+position = Vector2( -2671.6, -500.924 )
+scale = Vector2( 0.685634, 0.685634 )
+texture = ExtResource( 7 )
+
+[node name="Tongue_hitbox" type="Area2D" parent="Sprite"]
+modulate = Color( 0.486275, 0, 0, 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Tongue_hitbox"]
+visible = false
+position = Vector2( -1892.22, 962.332 )
+rotation = -0.261799
+shape = SubResource( 14 )
+disabled = true
+
+[node name="Head" type="Area2D" parent="Sprite"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Head"]
+position = Vector2( -580, 120 )
+shape = SubResource( 18 )
+disabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 39.25, 18 )
+shape = SubResource( 1 )
+
+[node name="Couldown" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="Move_Anims" type="AnimationPlayer" parent="."]
+reset_on_save = false
+anims/Bull = SubResource( 11 )
+anims/Fish_Rage = SubResource( 16 )
+anims/Idle = SubResource( 12 )
+anims/Laser = SubResource( 10 )
+anims/Laugh = SubResource( 5 )
+anims/Ready_star = SubResource( 7 )
+anims/Tongue = SubResource( 15 )
+
+[node name="Random_move" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="Boss_Personal_anim" type="AnimationPlayer" parent="."]
+reset_on_save = false
+anims/damage = SubResource( 9 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Start_tween" type="Tween" parent="."]
+
+[node name="Position2D" type="Position2D" parent="."]
+
+[node name="Restore_timer" type="Timer" parent="."]
+wait_time = 15.0
+one_shot = true
+
+[node name="Boss_sound" type="Node2D" parent="."]
+
+[node name="Laugh" type="AudioStreamPlayer" parent="Boss_sound"]
+stream = ExtResource( 9 )
+bus = "Effects"
+
+[node name="Laugh2" type="AudioStreamPlayer" parent="Boss_sound"]
+stream = ExtResource( 15 )
+bus = "Effects"
+
+[node name="Laser" type="AudioStreamPlayer" parent="Boss_sound"]
+stream = ExtResource( 12 )
+bus = "Effects"
+
+[node name="Laser_is_active" type="AudioStreamPlayer" parent="Boss_sound"]
+stream = ExtResource( 13 )
+bus = "Effects"
+
+[node name="Laser_power_down" type="AudioStreamPlayer" parent="Boss_sound"]
+stream = ExtResource( 14 )
+bus = "Effects"
+
+[node name="RS_Charge" type="AudioStreamPlayer" parent="Boss_sound"]
+stream = ExtResource( 10 )
+bus = "Effects"
+
+[node name="Star_Shoot" type="AudioStreamPlayer" parent="Boss_sound"]
+stream = ExtResource( 11 )
+bus = "Effects"
+
+[node name="Bull_Woosh" type="AudioStreamPlayer" parent="Boss_sound"]
+stream = ExtResource( 16 )
+bus = "Effects"
+
+[node name="Fish_Rage" type="AudioStreamPlayer" parent="Boss_sound"]
+stream = ExtResource( 17 )
+bus = "Effects"
+
+[node name="Tongue" type="AudioStreamPlayer" parent="Boss_sound"]
+stream = ExtResource( 18 )
+bus = "Effects"
+
+[node name="StarExp" type="AudioStreamPlayer" parent="Boss_sound"]
+stream = ExtResource( 19 )
+bus = "Effects"
+
+[node name="Hurt" type="AudioStreamPlayer" parent="Boss_sound"]
+stream = ExtResource( 20 )
+bus = "Effects"
+
+[node name="Explosion" type="AudioStreamPlayer" parent="Boss_sound"]
+stream = ExtResource( 21 )
+bus = "Effects"
+
+[node name="explosion" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 16
+lifetime = 2.0
+one_shot = true
+speed_scale = 3.0
+explosiveness = 1.0
+texture = ExtResource( 8 )
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 1000.0
+initial_velocity_random = 0.5
+scale_amount_curve = SubResource( 23 )
+
+[connection signal="area_entered" from="." to="." method="_on_Fish_Boss_area_entered"]
+[connection signal="body_entered" from="Sprite/Laser" to="." method="_on_Laser_body_entered"]
+[connection signal="body_entered" from="Sprite/Tongue" to="." method="_on_Tongue_body_entered"]
+[connection signal="body_entered" from="Sprite/Tongue_hitbox" to="." method="_on_Tongue_hitbox_body_entered"]
+[connection signal="body_entered" from="Sprite/Head" to="." method="_on_Head_body_entered"]
+[connection signal="timeout" from="Random_move" to="." method="_on_Random_move_timeout"]
+[connection signal="tween_all_completed" from="Start_tween" to="." method="_on_Start_tween_tween_all_completed"]
+[connection signal="timeout" from="Restore_timer" to="." method="_on_Restore_timer_timeout"]

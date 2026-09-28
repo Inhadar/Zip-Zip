@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/magical-whoosh-148459.wav-2b104f300ca34d1dbc8d94a37398d6ea.sample"
+
+[deps]
+
+source_file="res://Sounds/Fish_Boss_Sounds/magical-whoosh-148459.wav"
+dest_files=[ "res://.import/magical-whoosh-148459.wav-2b104f300ca34d1dbc8d94a37398d6ea.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

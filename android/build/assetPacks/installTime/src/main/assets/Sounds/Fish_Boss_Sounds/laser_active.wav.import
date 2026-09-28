@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/laser_active.wav-6ce187943846e67a0f29d1dcb966e6ca.sample"
+
+[deps]
+
+source_file="res://Sounds/Fish_Boss_Sounds/laser_active.wav"
+dest_files=[ "res://.import/laser_active.wav-6ce187943846e67a0f29d1dcb966e6ca.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/dropping-rocks-5996.wav-246fb16d523f7e1cf843f13d5a8e8214.sample"
+
+[deps]
+
+source_file="res://Sounds/Fish_Boss_Sounds/dropping-rocks-5996.wav"
+dest_files=[ "res://.import/dropping-rocks-5996.wav-246fb16d523f7e1cf843f13d5a8e8214.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

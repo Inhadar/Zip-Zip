@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/random-boss-fight-music-65460.mp3-5739fb66889738ece37a9e6983732371.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Musics/random-boss-fight-music-65460.mp3"
+dest_files=[ "res://.import/random-boss-fight-music-65460.mp3-5739fb66889738ece37a9e6983732371.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
